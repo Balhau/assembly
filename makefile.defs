@@ -1,0 +1,4 @@
+BIN=bin
+AS=as
+CC=gcc
+LINKER=ld
