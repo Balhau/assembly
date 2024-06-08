@@ -1,5 +1,6 @@
   .global doStuff
   .global doubleMyInt
+  .global doubleMyIntArray
   .text
 
 doStuff:
@@ -27,6 +28,8 @@ doubleMyInt:
   pop %rbp        # Moves base pointer to caller base pointer
   ret
 
+doubleMyIntArray:
+  ret
 
 .data
 msg:

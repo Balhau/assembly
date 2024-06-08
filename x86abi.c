@@ -21,6 +21,7 @@ typedef struct MyStruct {
 
 void doStuff(void);
 void doubleMyInt(int);
+void doubleMyIntArray(int[]);
 
 int main(void){
   printf("Hello world\n");
