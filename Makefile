@@ -1,30 +1,38 @@
 include makefile.defs
 
-.PHONY: all hello hello-c fibonnacci minmax clean
+.PHONY: all hello hello-c fibonnacci minmax x86abi mdir clean
 
 
-all: hello hello-c fibonnacci minmax
+all: hello \
+	hello-c \
+	fibonnacci \
+	minmax \
+	x86abi
 
-hello: 
+mdir:
 	@mkdir -p $(BIN)
+
+hello: mdir
 	$(CC) -c hello.s -o $(BIN)/hello.o
 	$(LINKER) $(BIN)/hello.o -o $(BIN)/hello
 
-hello-c:
-	@mkdir -p $(BIN)
+hello-c: mdir
 	$(AS) hello-c.s -o $(BIN)/hello-c.o
 	$(CC) $(PIC_FLAGS) $(BIN)/hello-c.o -o $(BIN)/hello-c
 
-fibonnacci:
-	@mkdir -p $(BIN)
+fibonnacci: mdir
 	$(AS) fibonnacci.s -o $(BIN)/fibonnacci.o
 	$(CC) $(PIC_FLAGS) $(BIN)/fibonnacci.o -o $(BIN)/fibonnacci
 
-minmax:
-	@mkdir -p $(BIN)
+minmax: mdir
 	$(AS) minmax.s -o $(BIN)/minmax.o
-	$(CC) -c minmax.c -o $(BIN)/main.o
-	$(CC) -o $(BIN)/minmax $(BIN)/main.o $(BIN)/minmax.o -no-pie
+	$(CC) -c minmax.c $(INCLUDES) -o $(BIN)/minmax_main.o
+	$(CC) -o $(BIN)/minmax $(BIN)/minmax_main.o $(BIN)/minmax.o -no-pie
+
+x86abi: mdir
+	$(AS) x86abi.s -o $(BIN)/x86abi.o
+	$(CC) -c x86abi.c $(INCLUDES) -o $(BIN)/x86abi_main.o
+	$(CC) -o $(BIN)/x86abi $(BIN)/x86abi_main.o $(BIN)/x86abi.o -no-pie
 
 clean:
 	@rm -rf $(BIN)

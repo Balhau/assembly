@@ -1,5 +1,10 @@
+# This file contains a set of configurations
+# to be injected on makefile
+#
 BIN=bin
 AS=as
 CC=gcc
 LINKER=ld
 PIC_FLAGS=-nostartfiles -no-pie
+LOCAL_INCLUDE=./include
+INCLUDES=-I$(LOCAL_INCLUDE)
