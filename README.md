@@ -9,9 +9,12 @@ Understand stack management and how its done in several instruction sets (the pr
 The scope will increase eventually. 
 
 ## Dependencies
-Some dependencies may be needed
+Some dependencies may be needed, for instance if you're using a debian based distro you can install arm compilers with 
 ```shell
+sudo apt-get update
+sudo apt-get install gcc-arm-linux-gnueabi
 sudo apt-get install gcc-arm-linux-gnueabihf
+
 ```
 
 # Build

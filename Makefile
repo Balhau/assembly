@@ -1,4 +1,6 @@
-include makefile.defs
+ARCH?=x86
+
+include defs/makefile-$(ARCH)
 
 .PHONY: all \
 	hello \

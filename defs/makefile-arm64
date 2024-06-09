@@ -1,7 +1,7 @@
 # This file contains a set of configurations
-# to be injected on makefile
+# to be injected on makefile for aarch64
 #
-BIN=bin
+BIN=bin-aarch64
 AS=as
 CC=gcc
 LINKER=ld
