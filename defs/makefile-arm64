@@ -1,12 +1,13 @@
 # This file contains a set of configurations
 # to be injected on makefile for aarch64
 #
-BIN=bin-aarch64
-ASM_BASE=asm/aarch64
+BIN=bin-arm64
+ASM_BASE=asm/arm64
 C_BASE=c
-AS=as
+AS=aarch64-linux-gnu-as
 CC=aarch64-linux-gnu-gcc 
-LINKER=ld
+LINKER=aarch64-linux-gnu-ld
+BASE_FLAGS=-static
 PIC_FLAGS=-nostartfiles -no-pie
 LOCAL_INCLUDE=./c/include
 INCLUDES=-I$(LOCAL_INCLUDE)

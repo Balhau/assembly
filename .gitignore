@@ -1,4 +1,4 @@
-bin-aarch64/
+bin-arm64/
 bin-x86/
 bin/
 dis/

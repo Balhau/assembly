@@ -11,10 +11,18 @@ The scope will increase eventually.
 ## Dependencies
 Some dependencies may be needed, for instance if you're using a debian based distro you can install arm compilers with 
 ```shell
+
+# Toolchain for other archs
 sudo apt-get update
 sudo apt-get install gcc-arm-linux-gnueabi //ARM32
 sudo apt-get install gcc-arm-linux-gnueabihf //ARM32 - support for hard float
 sudo apt-get install gcc-aarch64-linux-gnu //ARM64
+
+# Quemu for other archs
+sudo apt-get install qemu-system-arm
+
+# Install gdb multiarch to be able to debug multi architecture executables
+sudo apt-get install gdb-multiarch
 
 ```
 

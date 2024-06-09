@@ -3,8 +3,9 @@ ARCH?=x86
 include defs/makefile-$(ARCH)
 
 .PHONY: all \
-	hello \
-	hello-c \
+	hello-one \
+	hello-two \
+	hello-three\
 	fibonnacci \
 	minmax \
 	x86abi \
@@ -13,8 +14,9 @@ include defs/makefile-$(ARCH)
 	clean
 
 
-all: hello \
-	hello-c \
+all: hello-one \
+	hello-two \
+	hello-three\
 	fibonnacci \
 	minmax \
 	x86abi \
@@ -23,13 +25,16 @@ all: hello \
 mdir:
 	@mkdir -p $(BIN)
 
-hello: mdir
-	$(CC) -c $(ASM_BASE)/hello.s -o $(BIN)/hello.o
-	$(LINKER) $(BIN)/hello.o -o $(BIN)/hello
+hello-one: mdir
+	$(CC) $(BASE_FLAGS) -c $(ASM_BASE)/hello.s -o $(BIN)/hello-one.o
+	$(LINKER) $(BIN)/hello-one.o -o $(BIN)/hello-one
 
-hello-c: mdir
-	$(AS) $(ASM_BASE)/hello-c.s -o $(BIN)/hello-c.o
-	$(CC) $(PIC_FLAGS) $(BIN)/hello-c.o -o $(BIN)/hello-c
+hello-two: mdir
+	$(AS) $(ASM_BASE)/hello-c.s -o $(BIN)/hello-two.o
+	$(CC) $(PIC_FLAGS) $(BIN)/hello-two.o -o $(BIN)/hello-two
+
+hello-three: mdir
+	$(CC) $(BASE_FLAGS) $(C_BASE)/hello.c -o $(BIN)/hello-three
 
 fibonnacci: mdir
 	$(AS) $(ASM_BASE)/fibonnacci.s -o $(BIN)/fibonnacci.o

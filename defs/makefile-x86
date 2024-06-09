@@ -7,6 +7,7 @@ C_BASE=c
 AS=as
 CC=gcc
 LINKER=ld
+BASE_FLAGS=
 PIC_FLAGS=-nostartfiles -no-pie
 LOCAL_INCLUDE=./c/include
 INCLUDES=-I$(LOCAL_INCLUDE)
