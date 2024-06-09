@@ -2,6 +2,7 @@
   .global doubleMyInt
   .global doubleMyIntArray
   .global addDoubles
+  .global setNum
   .text
 
 doStuff:
@@ -70,6 +71,23 @@ addDoubles:
   movsd %xmm1, %xmm0
   pop %rbp;
   ret;
+
+  # args (RDI, RSI, RDX, RCX, R8)
+setNum:
+  push %rbp
+  mov %rsp, %rbp
+
+  xor %rax, %rax
+  mov %sil, 0x0(%rdi)
+  lea 0x10(%rdi), %rax      # These offsets were found via gdb
+  mov %dx, (%rax)
+  lea 0x20(%rdi), %rax      # Found via gdb
+  mov %ecx, (%rax)
+  lea 0x40(%rdi), %rax      # Found via gdb
+  mov %r8, (%rax)
+
+  pop %rbp
+  ret
 
 .data
 msg:

@@ -18,28 +18,36 @@
 
 #include <stdio.h>
 
-typedef struct MyStruct {
-  int anInt;
-  double aDouble;
-  char aChar;
-} MyStruct;
+typedef struct Num {
+  unsigned char num8;
+  unsigned short num16;
+  unsigned int num32;
+  unsigned long num64;
+} Num;
 
-void printListaInt(int lista[], int length) {
+static void printListaInt(int lista[], int length) {
   for (int i = 0; i < length; i++) {
     printf("%d, ", lista[i]);
   }
 }
 
-void printListaDouble(double lista[], int length) {
+static void printListaDouble(double lista[], int length) {
   for (int i = 0; i < length; i++) {
     printf("%f, ", lista[i]);
   }
 }
 
+static void printNum(Num *num) {
+  printf("\nNum: %d, %u, %u, %lu\n", num->num8, num->num16, num->num32,
+         num->num64);
+}
+
+// These are functions defined in x86abi.s
 void doStuff(void);
 void doubleMyInt(int);
 void doubleMyIntArray(int[], int);
 double addDoubles(double[], int);
+void setNum(Num *, char, short, int, long);
 
 int main(void) {
   int list_int[] = {1, 2, 3, 4};
@@ -57,4 +65,15 @@ int main(void) {
   printListaDouble(list_double, 10);
   sum = addDoubles(list_double, 10);
   printf("\nSum of doubles: %f\n", sum);
+
+  Num nums = {.num8 = 0xFF,
+              .num16 = 0xFFFF,
+              .num32 = 0xFFFFFFFF,
+              .num64 = 0xFFFFFFFFFFFFFFFF};
+
+  printf("Size of num: %lu", sizeof(nums));
+
+  setNum(&nums, 0xa, 0x64, 0x3e8, 0x2540be400);
+
+  printNum(&nums);
 }

@@ -7,3 +7,9 @@ We plan to explore the mmx instruction set as well to see how floating point pre
 Understand stack management and how its done in several instruction sets (the prolog, epilog we usually see on assembly blocks).
 
 The scope will increase eventually. 
+
+## Dependencies
+Some dependencies may be needed
+```shell
+sudo apt-get install gcc-arm-linux-gnueabihf
+```
