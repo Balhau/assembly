@@ -1,8 +1,4 @@
-# ----------------------------------------------------------------------------------------
-# Writes "Hello world" to the console using a C library. Runs on Linux or any other system
-# that does not use underscores for symbols in its C library. To assemble and run:
-#
-# ----------------------------------------------------------------------------------------
+
 
 .global main
 .text 

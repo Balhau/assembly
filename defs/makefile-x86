@@ -8,5 +8,5 @@ AS=as
 CC=gcc
 LINKER=ld
 PIC_FLAGS=-nostartfiles -no-pie
-LOCAL_INCLUDE=./include
+LOCAL_INCLUDE=./c/include
 INCLUDES=-I$(LOCAL_INCLUDE)

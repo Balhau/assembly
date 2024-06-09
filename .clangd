@@ -1,5 +1,5 @@
 CompileFlags: # Tweak the parse settings
   Add:
-    - "-I./include"
+    - "-I./c/include"
     - "-I/usr/include"
 
