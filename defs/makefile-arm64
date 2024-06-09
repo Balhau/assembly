@@ -2,8 +2,10 @@
 # to be injected on makefile for aarch64
 #
 BIN=bin-aarch64
+ASM_BASE=asm/aarch64
+C_BASE=c
 AS=as
-CC=gcc
+CC=aarch64-linux-gnu-gcc 
 LINKER=ld
 PIC_FLAGS=-nostartfiles -no-pie
 LOCAL_INCLUDE=./include

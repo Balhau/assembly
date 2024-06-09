@@ -12,8 +12,9 @@ The scope will increase eventually.
 Some dependencies may be needed, for instance if you're using a debian based distro you can install arm compilers with 
 ```shell
 sudo apt-get update
-sudo apt-get install gcc-arm-linux-gnueabi
-sudo apt-get install gcc-arm-linux-gnueabihf
+sudo apt-get install gcc-arm-linux-gnueabi //ARM32
+sudo apt-get install gcc-arm-linux-gnueabihf //ARM32 - support for hard float
+sudo apt-get install gcc-aarch64-linux-gnu //ARM64
 
 ```
 
