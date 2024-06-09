@@ -13,3 +13,11 @@ Some dependencies may be needed
 ```shell
 sudo apt-get install gcc-arm-linux-gnueabihf
 ```
+
+# Build
+
+To build this you can leverage the Makefile. You need to ensure you got the proper dependencies already installed and then you can go with
+
+```shell
+clear; make clean; make; bin/binary_to_execute_here
+```
