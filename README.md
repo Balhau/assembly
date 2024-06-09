@@ -31,5 +31,6 @@ sudo apt-get install gdb-multiarch
 To build this you can leverage the Makefile. You need to ensure you got the proper dependencies already installed and then you can go with
 
 ```shell
-clear; make clean; make; bin/binary_to_execute_here
+export ARCH=arm64 //For example
+clear;make clean; make; bin-$(ARCH)/binary_to_execute_here
 ```
