@@ -31,7 +31,7 @@ hello-one: mdir
 
 hello-two: mdir
 	$(AS) $(ASM_BASE)/hello-c.s -o $(BIN)/hello-two.o
-	$(CC) $(PIC_FLAGS) $(BIN)/hello-two.o -o $(BIN)/hello-two
+	$(CC) $(PIC_FLAGS) $(BASE_FLAGS) $(BIN)/hello-two.o -o $(BIN)/hello-two
 
 hello-three: mdir
 	$(CC) $(BASE_FLAGS) $(C_BASE)/hello.c -o $(BIN)/hello-three

@@ -8,6 +8,6 @@ AS=aarch64-linux-gnu-as
 CC=aarch64-linux-gnu-gcc 
 LINKER=aarch64-linux-gnu-ld
 BASE_FLAGS=-static
-PIC_FLAGS=-nostartfiles -no-pie
+PIC_FLAGS= -no-pie
 LOCAL_INCLUDE=./c/include
 INCLUDES=-I$(LOCAL_INCLUDE)
