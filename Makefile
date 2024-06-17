@@ -11,6 +11,7 @@ include defs/makefile-$(ARCH)
 	x86abi \
 	profiling \
 	mdir \
+	bootloader\
 	clean
 
 
@@ -49,6 +50,10 @@ x86abi: mdir
 	$(AS) $(ASM_BASE)/x86abi.s -o $(BIN)/x86abi.o
 	$(CC) -c $(C_BASE)/x86abi.c $(INCLUDES) -o $(BIN)/x86abi_main.o
 	$(CC) -o $(BIN)/x86abi $(BIN)/x86abi_main.o $(BIN)/x86abi.o -no-pie
+
+bootloader: mdir
+	$(AS) $(BOOTLOADER_FLAGS) $(ASM_BASE)/boot16.s -o $(BIN)/boot.o
+	$(LINKER) --oformat binary -Ttext 0x7c00 $(BIN)/boot.o -o $(BIN)/boot.bin
 
 profiling: mdir
 	$(CC) $(C_BASE)/profiling.c $(INCLUDES) -o $(BIN)/profiling
